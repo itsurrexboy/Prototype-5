@@ -5,7 +5,10 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     Rigidbody targetRb;
+    GameManager gameManager;
+    public ParticleSystem explosionFx;
 
+    public int pointValue;
 
     float minSpeed = 12f;
     float maxSpeed = 16f;
@@ -15,15 +18,13 @@ public class Target : MonoBehaviour
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPos();
     }
 
-    void Update(){
-        // DestroyObject();
-    }
     private Vector3 RandomSpawnPos()
     {
         return new Vector3(Random.Range(-xRange, xRange), yPos);
@@ -40,14 +41,12 @@ public class Target : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        Instantiate(explosionFx, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        gameManager.UpdateScore(pointValue);
     }
     void OnTriggerEnter(Collider other) {
         Destroy(gameObject);
     }
-    // void DestroyObject(){
-    //     if(transform.position.y<-6.5f){
-    //         Destroy(gameObject);
-    //     }
-    // }
+    
 }

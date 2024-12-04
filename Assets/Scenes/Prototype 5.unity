@@ -492,6 +492,7 @@ MonoBehaviour:
   - {fileID: 7553768216448196444, guid: 1625c95ea4ff93f44a390735c9eb2b14, type: 3}
   - {fileID: 829375293957004926, guid: d835867c3beff5346813d9a902cbab81, type: 3}
   - {fileID: 9029782179578779565, guid: df5b7d5ea1b0b86418fe325719163f09, type: 3}
+  scoreText: {fileID: 1704603850}
   spawnRate: 1
 --- !u!1 &1043111703
 GameObject:
@@ -740,8 +741,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score :'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8abe1e37fe7bf433896970245b936749, type: 2}
-  m_sharedMaterial: {fileID: 21175996417216586, guid: 8abe1e37fe7bf433896970245b936749, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 31706cb8c8e1e4d99bb4d0a39c952ca2, type: 2}
+  m_sharedMaterial: {fileID: 21066439983934862, guid: 31706cb8c8e1e4d99bb4d0a39c952ca2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -773,7 +774,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
