@@ -21,6 +21,9 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPos();
     }
 
+    void Update(){
+        // DestroyObject();
+    }
     private Vector3 RandomSpawnPos()
     {
         return new Vector3(Random.Range(-xRange, xRange), yPos);
@@ -35,4 +38,16 @@ public class Target : MonoBehaviour
     {
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
     }
+
+    private void OnMouseDown() {
+        Destroy(gameObject);
+    }
+    void OnTriggerEnter(Collider other) {
+        Destroy(gameObject);
+    }
+    // void DestroyObject(){
+    //     if(transform.position.y<-6.5f){
+    //         Destroy(gameObject);
+    //     }
+    // }
 }
