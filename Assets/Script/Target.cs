@@ -40,16 +40,23 @@ public class Target : MonoBehaviour
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
     }
 
-    private void OnMouseDown() {
-        Instantiate(explosionFx, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-        gameManager.UpdateScore(pointValue);
+    private void OnMouseDown()
+    {
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionFx, transform.position, Quaternion.identity);
+            gameManager.UpdateScore(pointValue);
+        }
+
     }
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other)
+    {
         Destroy(gameObject);
-        if(!gameObject.CompareTag("Bad")){
+        if (!gameObject.CompareTag("Bad"))
+        {
             gameManager.GameOver();
         }
     }
-    
+
 }
